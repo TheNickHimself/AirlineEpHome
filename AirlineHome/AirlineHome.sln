@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineHome", "AirlineHome\AirlineHome.csproj", "{CDBE4491-8590-479E-9AFD-8560A824E376}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{FA981502-CAB3-4E29-8F80-B078B7408D18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{1A4ED5E5-6487-42BF-91E1-73B3469191E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDBE4491-8590-479E-9AFD-8560A824E376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBE4491-8590-479E-9AFD-8560A824E376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBE4491-8590-479E-9AFD-8560A824E376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBE4491-8590-479E-9AFD-8560A824E376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA981502-CAB3-4E29-8F80-B078B7408D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA981502-CAB3-4E29-8F80-B078B7408D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA981502-CAB3-4E29-8F80-B078B7408D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA981502-CAB3-4E29-8F80-B078B7408D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4ED5E5-6487-42BF-91E1-73B3469191E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4ED5E5-6487-42BF-91E1-73B3469191E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4ED5E5-6487-42BF-91E1-73B3469191E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4ED5E5-6487-42BF-91E1-73B3469191E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFE0052F-5026-43EE-8464-0BC134B8C356}
+	EndGlobalSection
+EndGlobal

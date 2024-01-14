@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AirlineHome.Models.ViewModels.FlightsViewModel>
+
+@{
+    ViewData["Title"] = "Flights";
+
+}
+
+<h2>Flights</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Departure Date</th>
+            <th>Arrival Date</th>
+            <th>Row</th>
+            <th>Column</th>
+            <th>Origin</th>
+            <th>Destination</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in Model)
+        {
+            <tr>
+                <td>@flight.Id</td>
+                <td>@flight.DepartureDate</td>
+                <td>@flight.ArrivalDate</td>
+                <td>@flight.Row</td>
+                <td>@flight.Column</td>
+                <td>@flight.CountryForm</td>
+                <td>@flight.CountryTo</td>
+            </tr>
+        }
+    </tbody>
+</table>

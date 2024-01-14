@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AirlineHome.Models.ViewModels.TicketViewModel>
+
+<h2>Show Tickets</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Flight ID</th>
+            <th>Row</th>
+            <th>Column</th>
+            <th>Passport</th>
+            <th>Price Paid</th>
+            <th>Cancelled</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.Id</td>
+                <td>@ticket.FlightIdFK</td>
+                <td>@ticket.Row</td>
+                <td>@ticket.Column</td>
+                <td>@ticket.Passport</td>
+                <td>@ticket.PricePaid</td>
+                <td>@ticket.Cancelled</td>
+            </tr>
+        }
+    </tbody>
+</table>
