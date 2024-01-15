@@ -260,3 +260,15 @@ C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHo
 C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\obj\Debug\net8.0\AirlineHome.pdb
 C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\obj\Debug\net8.0\AirlineHome.genruntimeconfig.cache
 C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\obj\Debug\net8.0\ref\AirlineHome.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome\bin\Debug\net8.0\Microsoft.JSInterop.dll

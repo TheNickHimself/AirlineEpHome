@@ -18,7 +18,7 @@ public class FlightsController : Controller
     }
 
     // Method and View to show a list of available flights with retail prices
-    public IActionResult ShowAvailableFlights()
+    public IActionResult ShowFlights()
     {
         var now = DateTime.Now;
 

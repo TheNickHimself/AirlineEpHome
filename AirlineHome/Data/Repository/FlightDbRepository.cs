@@ -24,7 +24,7 @@ namespace Data.Repository
 
         public IEnumerable<Flight> GetFlights()
         {
-            return _context.Flights.ToList();
+            return _context.Flights;
         }
     }
 }

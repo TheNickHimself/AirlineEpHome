@@ -1,6 +1,9 @@
 using Data.DataContext;
 using Data.Repository;
+//using Domain.Interfaces;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace AirlineHome
 {
@@ -8,10 +11,19 @@ namespace AirlineHome
     {
         public static void Main(string[] args)
         {
-
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+            /*
+            builder.Services.AddDbContext<AirlineDbContext>(options =>
+            options.UseSqlServer("Server=MOTHERSHIP\\SQLEXPRESS01;Database=airlinedb;Trusted_Connection=True;MultipleActiveResultSets=tru", o => o.TrustServerCertificate()));
+            */
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<AirlineDbContext>(options =>options.UseSqlServer(AirlineDbContext));
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            builder.Services.AddDbContext<AirlineDbContext>(options =>
+                options.UseSqlServer(connectionString));
+            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+            //builder.Services.AddDbContext<AirlineDbContext>(options =>options.UseSqlServer(AirlineDbContext));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -19,6 +31,7 @@ namespace AirlineHome
 
             //injextor
             builder.Services.AddScoped<FlightDbRepository>();
+            builder.Services.AddScoped<TicketDBRepository>();
 
             var app = builder.Build();
 

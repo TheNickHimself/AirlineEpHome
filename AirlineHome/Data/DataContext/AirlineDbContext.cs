@@ -12,14 +12,17 @@ using System.Xml.Linq;
 
 namespace Data.DataContext
 {
-    public class AirlineDbContext : DbContext
+    public class AirlineDbContext : IdentityDbContext
     {
         public AirlineDbContext(DbContextOptions<AirlineDbContext> options) : base(options) { }
 
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
-        //public DbSet<> FlightsViewModel { get; set; } = default!;
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
     }
 
 }

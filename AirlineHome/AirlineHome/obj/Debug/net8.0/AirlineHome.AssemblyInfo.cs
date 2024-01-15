@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AirlineHome")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c3e116e7db1fc5ce81a6d3d56c6f882dd7197e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b73dc2e87c0eef6cef7b4ed2931478b281e5dea0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AirlineHome")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AirlineHome")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
