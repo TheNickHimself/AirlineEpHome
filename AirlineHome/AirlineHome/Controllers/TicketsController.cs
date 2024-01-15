@@ -1,5 +1,4 @@
-﻿// Presentation/Controllers/TicketsController.cs
-using System;
+﻿using System;
 using Data.Repository;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,24 +9,26 @@ public class TicketsController : Controller
 {
     private readonly FlightDbRepository _flightRepository;
     private readonly TicketDBRepository _ticketRepository;
+    private readonly IWebHostEnvironment _hostingEnvironment;
 
-    public TicketsController(FlightDbRepository flightRepository, TicketDBRepository ticketRepository)
+    public TicketsController(FlightDbRepository flightRepository, TicketDBRepository ticketRepository, IWebHostEnvironment hostingEnvironment)
     {
         _flightRepository = flightRepository;
         _ticketRepository = ticketRepository;
+        _hostingEnvironment = hostingEnvironment;
     }
 
-    public IActionResult BookFlight(int flightId)
+
+    public IActionResult BookFlight(string flightIdstr)//genualy no idea why the parameter isnt getting passed
     {
+        int flightId = Int32.Parse(flightIdstr);
         var flight = _flightRepository.GetFlight(flightId);
 
-        // Check if the flight is not fully booked and departure date is in the future
         if (flight == null || IsFlightFullyBooked(flight) || flight.DepartureDate <= DateTime.Now)
         {
             return RedirectToAction("ShowFlights");
         }
 
-        // Create a new TicketViewModel with default values
         var ticketViewModel = new TicketViewModel
         {
             Id = flight.Id,
@@ -39,20 +40,21 @@ public class TicketsController : Controller
             Cancelled = false
         };
 
-        return View(ticketViewModel);
+        ViewBag.flightDeets = ticketViewModel;
+        return View("BookFlight");
     }
 
     [HttpPost]
-    public IActionResult BookFlight(TicketViewModel ticketViewModel)
+    public IActionResult BookFlight(TicketViewModel ticketViewModel, IFormFile passportImg)
     {
-        // Check if the flight is not fully booked and departure date is in the future
         var flight = _flightRepository.GetFlight(ticketViewModel.Id);
         if (flight == null || IsFlightFullyBooked(flight) || flight.DepartureDate <= DateTime.Now)
         {
             return RedirectToAction("ShowFlights");
         }
-
-        // Check if the selected seat is available
+        
+        /*some work around the solution like this function are basicaly duplucates 
+         Cuz i used Microsoft docs, cool ppl on yt and my main boi gpt and they all anser question with a slightly different aproach*/
         var bookedTickets = _ticketRepository.GetTickets(ticketViewModel.Id);
         if (bookedTickets.Any(t => t.Row == ticketViewModel.Row && t.Column == ticketViewModel.Column && !t.Cancelled))
         {
@@ -60,22 +62,21 @@ public class TicketsController : Controller
             return View(ticketViewModel);
         }
 
-        // Check if the selected ticket is already booked or canceled // MAYBE UNECESARY
-        var existingTicket = bookedTickets.FirstOrDefault(t => t.Row == ticketViewModel.Row && t.Column == ticketViewModel.Column);
-        if (existingTicket != null && !existingTicket.Cancelled)
+        if (passportImg != null)
         {
-            ModelState.AddModelError("TicketUnavailable", "Selected ticket is already booked.");
-            return View(ticketViewModel);
+            var uniqueFileName = GetUniqueFileName(passportImg.FileName);
+            var uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            passportImg.CopyTo(new FileStream(filePath, FileMode.Create));
+            ticketViewModel.Passport = Path.Combine("uploads", uniqueFileName);
         }
 
-        // Check if the departure date is in the future
         if (flight.DepartureDate <= DateTime.Now)
         {
             ModelState.AddModelError("InvalidDepartureDate", "You cant time travel. Set the Departur for the future.");
             return View(ticketViewModel);
         }
 
-        // Create and save the new ticket
         var newTicket = new Ticket
         {
             Id = ticketViewModel.Id,
@@ -94,12 +95,11 @@ public class TicketsController : Controller
 
     // Method and View to show the history of purchased tickets for the logged-in client
     [Authorize] // Add authorization attribute to ensure the user is logged in
+    //but there is no login part so this dont really work
     public IActionResult ShowTicketsHistory()
     {
-        // Get the logged-in client's ID from the authentication context
         var loggedInClientId = int.Parse(User.FindFirst("id")?.Value);
 
-        // Retrieve the tickets history for the logged-in client
         var ticketsHistory = _ticketRepository.GetTickets(loggedInClientId)
             .Select(t => new TicketViewModel
             {
@@ -115,9 +115,36 @@ public class TicketsController : Controller
         return View(ticketsHistory);
     }
 
+    public IActionResult GetTicketsFromFlight(int Id)
+    {
+        var ticketsHistory = _ticketRepository.GetTickets(Id)
+            .Select(t => new TicketViewModel
+            {
+                Id = t.Id,
+                Row = t.Row,
+                Column = t.Column,
+                FlightIdFK = t.FlightIdFK,
+                Passport = t.Passport,
+                PricePaid = t.PricePaid,
+                Cancelled = t.Cancelled
+            });
+
+        return View(ticketsHistory);
+    }
+
+
+
     private decimal CalculateRetailPrice(decimal wholesalePrice, decimal commissionRate)
     {
         return wholesalePrice * (1 + commissionRate);
+    }
+
+    private string GetUniqueFileName(string fileName)
+    {
+        return Path.GetFileNameWithoutExtension(fileName)
+               + "_"
+               + Guid.NewGuid().ToString("N")
+               + Path.GetExtension(fileName);
     }
 
     private bool IsFlightFullyBooked(Flight flight)
@@ -125,6 +152,6 @@ public class TicketsController : Controller
         var bookedTicketsCount = _ticketRepository.GetTickets(flight.Id)
             .Count(ticket => !ticket.Cancelled);
 
-        return bookedTicketsCount > 150;
+        return bookedTicketsCount > 150;//150 is the rough average on an a380
     }
 }

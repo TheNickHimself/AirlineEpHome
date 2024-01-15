@@ -1,9 +1,7 @@
-﻿// Presentation/Controllers/TicketsController.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Data.Repository;
 using Microsoft.AspNetCore.Mvc;
-//using AirlineHome.Data.DataContext;
 using AirlineHome.Models.ViewModels;
 
 public class FlightsController : Controller
@@ -16,8 +14,6 @@ public class FlightsController : Controller
         _flightsDBReposetory = flightsDBReposetory;
         _ticketsDBRepository = TicketDBRepository;
     }
-
-    // Method and View to show a list of available flights with retail prices
     public IActionResult ShowFlights()
     {
         var now = DateTime.Now;

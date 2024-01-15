@@ -30,6 +30,12 @@
                 <td>@flight.Column</td>
                 <td>@flight.CountryForm</td>
                 <td>@flight.CountryTo</td>
+                <td>
+                    <form asp-controller="tickets" asp-action="BookFlight" method="get">
+                        <input type="hidden" name="Id" value="@flight.Id" />
+                        <button type="submit" class="btn btn-primary">Book</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

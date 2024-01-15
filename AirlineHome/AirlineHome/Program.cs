@@ -52,7 +52,7 @@ namespace AirlineHome
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Flights}/{action=ShowFlights}/{id?}");
 
             app.Run();
 

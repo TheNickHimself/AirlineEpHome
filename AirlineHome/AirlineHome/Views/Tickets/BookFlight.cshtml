@@ -1,0 +1,18 @@
+﻿@model AirlineHome.Models.ViewModels.TicketViewModel
+
+@{
+    ViewData["Title"] = "Book Flight";
+}
+
+<h2>Book Flight</h2>
+<p>@ViewBag.SomeData</p>
+
+<form asp-action="BookFlight" method="post" enctype="multipart/form-data">
+    <div>
+        <label asp-for="Passport">Passport Image:</label>
+        <input type="file" name="passport" accept=".jpg, .jpeg, .png" required>
+        <span asp-validation-for="Passport" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Book</button>
+</form>

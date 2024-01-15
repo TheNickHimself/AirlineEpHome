@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\User\Documents\SWD6.2B\Enterprise Programming\EpHomeRepo\Hope\AirlineHome\AirlineHome
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/User/Documents/SWD6.2B/Enterprise Programming/EpHomeRepo/Hope/AirlineHome/AirlineHome/Views/Flights/GetTicketsFromFlight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0c1xHZXRUaWNrZXRzRnJvbUZsaWdodC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Documents/SWD6.2B/Enterprise Programming/EpHomeRepo/Hope/AirlineHome/AirlineHome/Views/Flights/ShowFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0c1xTaG93RmxpZ2h0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/Documents/SWD6.2B/Enterprise Programming/EpHomeRepo/Hope/AirlineHome/AirlineHome/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Documents/SWD6.2B/Enterprise Programming/EpHomeRepo/Hope/AirlineHome/AirlineHome/Views/Tickets/BookFlight.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xCb29rRmxpZ2h0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Documents/SWD6.2B/Enterprise Programming/EpHomeRepo/Hope/AirlineHome/AirlineHome/Views/_ViewImports.cshtml]
